@@ -1,0 +1,35 @@
+[project]
+name = "qa-tech-task"
+version = "0.1.0"
+description = "Test plan, bug reports and a small Selenium + requests automation framework for a single bet placement feature"
+requires-python = ">=3.11"
+dependencies = ["selenium (>=4.52.0,<5.0.0)", "requests (>=2.34.2,<3.0.0)", "pytest (>=9.2.0,<10.0.0)"]
+
+[tool.poetry]
+package-mode = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+    "PT", # flake8-pytest-style
+]
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.17.5,<0.18.0)"
+]
